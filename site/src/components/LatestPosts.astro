@@ -1,0 +1,28 @@
+---
+/** トップページ用：ブログの新着3件 */
+import { getEmDashCollection } from "emdash";
+import PostCard from "./PostCard.astro";
+
+const { entries: posts, cacheHint } = await getEmDashCollection("posts", {
+	orderBy: { published_at: "desc" },
+	limit: 3,
+});
+if (Astro.cache?.enabled) Astro.cache.set(cacheHint);
+---
+
+<section class="sec blog-latest" id="blog">
+	<div class="wrap">
+		<p class="eyebrow">Blog</p>
+		<div class="sv-head">
+			<h2>News &amp; Blog</h2>
+			<p class="sub">お知らせ・ブログ</p>
+			<p class="desc">お店からのお知らせや、<br />車のメンテナンスに役立つ情報をお届けします。</p>
+		</div>
+		{posts.length === 0 ? (
+			<p class="empty">まだ記事はありません。</p>
+		) : (
+			<div class="post-grid">{posts.map((post) => <PostCard post={post} />)}</div>
+		)}
+		<p class="more"><a class="btn btn-outline" href="/blog">記事一覧を見る<svg><use href="#i-arrow"></use></svg></a></p>
+	</div>
+</section>

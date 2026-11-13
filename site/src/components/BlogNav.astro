@@ -1,0 +1,14 @@
+---
+interface Props {
+	terms: { slug: string; label: string }[];
+	current?: string;
+}
+const { terms, current } = Astro.props;
+---
+
+<nav class="blog-cats" aria-label="カテゴリー">
+	<a href="/blog" aria-current={current ? undefined : "page"}>すべて</a>
+	{terms.map((t) => (
+		<a href={`/blog/category/${t.slug}`} aria-current={current === t.slug ? "page" : undefined}>{t.label}</a>
+	))}
+</nav>

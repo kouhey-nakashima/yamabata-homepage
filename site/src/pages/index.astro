@@ -1,0 +1,179 @@
+---
+import Site from "../layouts/Site.astro";
+import Contact from "../components/Contact.astro";
+import LatestPosts from "../components/LatestPosts.astro";
+---
+
+<Site title="株式会社山畑自動車" description="奄美市名瀬浦上の整備工場、株式会社山畑自動車。車検・修理・整備・新車中古車販売・保険代理までワンストップで対応します。" contact={false}>
+
+  <section class="hero" style="padding:0">
+    <div class="hero-img"><img class="ph" src="/img/hero.jpg" width="2000" height="1125" alt="山畑自動車の店舗外観（青い整備工場と看板）" fetchpriority="high"></div>
+    <div class="hero-bubble" aria-hidden="true"></div>
+    <svg class="road" viewBox="0 0 620 200" aria-hidden="true"><path d="M0 190C160 170 260 120 330 60S520 10 620 0" fill="none" stroke="#9aa9ba" stroke-width="1.2"/><path d="M0 200C170 186 290 150 370 90S540 30 620 26" fill="none" stroke="#9aa9ba" stroke-width="1.2"/><path d="M0 196C165 178 275 135 350 75S530 20 620 13" fill="none" stroke="#9aa9ba" stroke-width="1" stroke-dasharray="10 10"/></svg>
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Amami Car Partner</p>
+        <h1>信頼と信用を積み重ね、<br><em>奄美の皆様に愛される<br>整備工場に。</em></h1>
+        <p class="lead">お客様の大切なお車の安心・安全な<br>カーライフをサポートいたします。</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#services">事業内容を見る<svg><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-outline" href="#contact">無料お見積り<svg><use href="#i-diag"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="info">
+    <div class="wrap info-in">
+      <span class="eyebrow">Info</span>
+      <dl>
+        <div><dt>所在地</dt><dd>鹿児島県奄美市名瀬浦上1303-1</dd></div>
+        <div><dt>TEL</dt><dd>0997-52-2610</dd></div>
+        <div><dt>営業時間</dt><dd>9:00〜17:00</dd></div>
+        <div><dt>定休日</dt><dd>日曜日・月曜日</dd></div>
+      </dl>
+    </div>
+  </div>
+
+  <section class="about" id="about">
+    <div class="blob" aria-hidden="true"></div>
+    <div class="wrap about-grid">
+      <img class="photo" src="/img/about.jpg" width="1600" height="1068" alt="シャッターを開けた山畑自動車の整備工場の中" loading="lazy">
+      <div>
+        <p class="eyebrow">About us</p>
+        <h2>最善のサービスを<br><em>提供いたします。</em></h2>
+        <p>当社は、お客様の大切なお車を預かるという責任を持ち、細部の一つ一つまでこだわった丁寧な作業を心掛けております。常にお客様目線に立つことを忘れず、ご要望やお悩みに対し最善のサービスを提供することがモットーです。<br>車検から事故車や故障車の修理・整備、カー用品の取付、自動車（新車・中古車）の販売まで、窓口一つのワンストップで対応いたします。<br>車のことなら、ぜひ「山畑自動車」にお任せください！</p>
+        <a class="btn btn-outline" href="/company">会社概要<svg><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="wrap">
+      <p class="eyebrow">Services</p>
+      <div class="sv-head">
+        <h2>Our services</h2>
+        <p class="sub">車のことなら、ワンストップで。</p>
+        <p class="desc">車検・修理から販売、保険まで。<br>窓口一つで、お車のことをまるごとサポートします。</p>
+      </div>
+      <div class="cards">
+        <a class="card" href="/shaken">
+          <img class="ph" src="/img/svc-shaken.jpg" width="900" height="600" alt="車の下回りを点検する整備士" loading="lazy">
+          <div class="card-body"><span class="num">01</span><h3>車検</h3><p>国家資格整備士がお車の状態をスピーディーかつ的確に診断し、お客様のニーズに応じた車検プランをご提案いたします。</p><span class="arrow"><svg><use href="#i-diag"/></svg></span></div>
+        </a>
+        <a class="card" href="/repair">
+          <img class="ph" src="/img/svc-repair.jpg" width="900" height="601" alt="整備工具が並ぶツールボックス" loading="lazy">
+          <div class="card-body"><span class="num">02</span><h3>修理・整備</h3><p>お車を最良のコンディションに保つよう、プロのテクニカルスタッフが念入りな点検・整備を行います。</p><span class="arrow"><svg><use href="#i-diag"/></svg></span></div>
+        </a>
+        <a class="card" href="/sales">
+          <img class="ph" src="/img/svc-sales.jpg" width="900" height="600" alt="店舗前に並ぶ販売車両" loading="lazy">
+          <div class="card-body"><span class="num">03</span><h3>新車・中古車販売</h3><p>仕入れから整備・販売に至るまで、常にお客様のご希望に寄り添います。</p><span class="arrow"><svg><use href="#i-diag"/></svg></span></div>
+        </a>
+        <a class="card" href="/insurance">
+          <img class="ph" src="/img/svc-insurance.jpg" width="500" height="334" alt="店内の相談カウンター" loading="lazy">
+          <div class="card-body"><span class="num">04</span><h3>保険代理</h3><p>安心して車に乗るために、万一の備えとして様々な自動車保険の中から、アドバイスさせていただきます。</p><span class="arrow"><svg><use href="#i-diag"/></svg></span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <LatestPosts />
+
+  <section class="voices" id="voice">
+    <div class="wrap">
+      <p class="eyebrow">Voice</p>
+      <div class="sv-head voices-head">
+        <h2>Customer voices</h2>
+        <p class="sub">お客様の声</p>
+        <p class="desc">山畑自動車をご利用いただいた<br>お客様からの声をご紹介します。</p>
+      </div>
+      <div class="voice-grid">
+        <article class="voice">
+          <div class="voice-av"><svg viewBox="0 0 120 120" aria-hidden="true"><defs><clipPath id="c2673"><circle cx="60" cy="60" r="56"/></clipPath></defs>
+<circle cx="60" cy="60" r="56" fill="#dcecfb"/>
+<g clip-path="url(#c2673)" fill="#fff" stroke="#0b3a6b" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+<path d="M22 124c2-22 18-34 38-34s36 12 38 34"/>
+<path d="M50 80v12c3 4 17 4 20 0V80"/>
+<ellipse cx="60" cy="58" rx="20" ry="24"/>
+<path d="M39 54c-2-16 8-26 21-26s23 9 21 26c-4-6-10-10-16-10-7 4-17 6-26 10z" fill="#0b3a6b"/>
+<path d="M53 60v0M67 60v0" stroke-width="4.5"/>
+<path d="M54 70c3 3 9 3 12 0" fill="none"/>
+
+</g></svg></div>
+          <p class="voice-who">20代 男性<span class="voice-tag">車検</span></p>
+          <p class="voice-text">【サンプル】お客様の感想が入ります。<em>印象に残った一言を、この色で強調できます。</em></p>
+        </article>
+        <article class="voice">
+          <div class="voice-av"><svg viewBox="0 0 120 120" aria-hidden="true"><defs><clipPath id="c9035"><circle cx="60" cy="60" r="56"/></clipPath></defs>
+<circle cx="60" cy="60" r="56" fill="#a9d3f5"/>
+<g clip-path="url(#c9035)" fill="#fff" stroke="#0b3a6b" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+<path d="M22 124c2-22 18-34 38-34s36 12 38 34"/>
+<path d="M50 80v12c3 4 17 4 20 0V80"/>
+<ellipse cx="60" cy="58" rx="20" ry="24"/>
+<path d="M38 62c-4-22 6-36 22-36s26 14 22 36c-2 10-4 18-4 26h-4V58c-8-2-16-8-18-14-4 8-10 12-14 14v30h-4c0-8-2-16 0-26z" fill="#0b3a6b"/>
+<path d="M53 60v0M67 60v0" stroke-width="4.5"/>
+<path d="M54 70c3 3 9 3 12 0" fill="none"/>
+
+</g></svg></div>
+          <p class="voice-who">30代 女性<span class="voice-tag">修理・整備</span></p>
+          <p class="voice-text">【サンプル】お客様の感想が入ります。<em>説明がわかりやすかった点など。</em></p>
+        </article>
+        <article class="voice">
+          <div class="voice-av"><svg viewBox="0 0 120 120" aria-hidden="true"><defs><clipPath id="c4735"><circle cx="60" cy="60" r="56"/></clipPath></defs>
+<circle cx="60" cy="60" r="56" fill="#dcecfb"/>
+<g clip-path="url(#c4735)" fill="#fff" stroke="#0b3a6b" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+<path d="M22 124c2-22 18-34 38-34s36 12 38 34"/>
+<path d="M50 80v12c3 4 17 4 20 0V80"/>
+<ellipse cx="60" cy="58" rx="20" ry="24"/>
+<path d="M40 52c0-14 9-22 20-22s20 8 20 22c-6-4-14-6-20-6s-14 2-20 6z" fill="#0b3a6b"/><path d="M46 60h10M64 60h10M56 60h8" fill="none" stroke-width="2.5"/><rect x="45" y="55" width="11" height="9" rx="3" fill="none" stroke-width="2.5"/><rect x="64" y="55" width="11" height="9" rx="3" fill="none" stroke-width="2.5"/>
+<path d="M53 60v0M67 60v0" stroke-width="4.5"/>
+<path d="M54 70c3 3 9 3 12 0" fill="none"/>
+
+</g></svg></div>
+          <p class="voice-who">40代 男性<span class="voice-tag">保険の相談</span></p>
+          <p class="voice-text">【サンプル】お客様の感想が入ります。<em>保険の見直しの感想など。</em></p>
+        </article>
+        <article class="voice">
+          <div class="voice-av"><svg viewBox="0 0 120 120" aria-hidden="true"><defs><clipPath id="c3105"><circle cx="60" cy="60" r="56"/></clipPath></defs>
+<circle cx="60" cy="60" r="56" fill="#a9d3f5"/>
+<g clip-path="url(#c3105)" fill="#fff" stroke="#0b3a6b" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+<path d="M22 124c2-22 18-34 38-34s36 12 38 34"/>
+<path d="M50 80v12c3 4 17 4 20 0V80"/>
+<ellipse cx="60" cy="58" rx="20" ry="24"/>
+<path d="M36 66c-6-6-4-16 0-20-2-12 8-20 14-18 4-6 16-6 20 0 6-2 16 6 14 18 4 4 6 14 0 20-2-8-4-14-6-18-8 2-22 2-30-4-4 6-8 12-12 22z" fill="#8fa8c4"/><circle cx="42" cy="44" r="5" fill="#8fa8c4"/><circle cx="78" cy="44" r="5" fill="#8fa8c4"/>
+<path d="M53 60v0M67 60v0" stroke-width="4.5"/>
+<path d="M54 70c3 3 9 3 12 0" fill="none"/>
+
+</g></svg></div>
+          <p class="voice-who">60代 女性<span class="voice-tag">車の購入</span></p>
+          <p class="voice-text">【サンプル】お客様の感想が入ります。<em>購入後のフォローの感想など。</em></p>
+        </article>
+      </div>
+      <p class="note-box warn">【試作メモ】掲載する文章はまだありません。実際のお客様の声（年代・性別・ご利用内容・感想）をいただいたら差し替えます。掲載はご本人の了承を得たものに限ります。</p>
+    </div>
+  </section>
+
+  <Contact />
+
+  <section class="company" id="company">
+    <div class="wrap company-grid">
+      <div>
+        <p class="eyebrow">Company</p>
+        <h2>会社概要・アクセス</h2>
+        <table>
+          <tr><th>会社名</th><td>株式会社山畑自動車</td></tr>
+          <tr><th>所在地</th><td>〒894-0008<br>鹿児島県奄美市名瀬浦上1303-1</td></tr>
+          <tr><th>TEL</th><td>0997-52-2610</td></tr>
+          <tr><th>FAX</th><td>0997-52-2612</td></tr>
+          <tr><th>事業内容</th><td>車検／修理・整備／新車・中古車販売／保険代理</td></tr>
+          <tr><th>営業時間</th><td>9:00〜17:00</td></tr>
+          <tr><th>定休日</th><td>日曜日・月曜日</td></tr>
+        </table>
+        <p class="insta"><span class="eyebrow">Instagram</span><a class="btn btn-outline" style="padding:10px 20px;font-size:13px" href="https://www.instagram.com/yamabatamotors" target="_blank" rel="noopener">最新情報を見る<svg><use href="#i-diag"/></svg></a></p>
+      </div>
+      <div class="map">
+        <iframe title="株式会社山畑自動車の地図" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=%E9%B9%BF%E5%85%90%E5%B3%B6%E7%9C%8C%E5%A5%84%E7%BE%8E%E5%B8%82%E5%90%8D%E7%80%AC%E6%B5%A6%E4%B8%8A1303-1&output=embed"></iframe>
+      </div>
+    </div>
+  </section>
+</Site>

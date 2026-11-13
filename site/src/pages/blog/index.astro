@@ -1,0 +1,37 @@
+---
+import { getEmDashCollection, getTaxonomyTermsWithCacheHint } from "emdash";
+import Site from "../../layouts/Site.astro";
+import PostCard from "../../components/PostCard.astro";
+import BlogNav from "../../components/BlogNav.astro";
+
+const cursor = Astro.url.searchParams.get("cursor") || undefined;
+const { entries: posts, cacheHint, nextCursor } = await getEmDashCollection("posts", {
+	orderBy: { published_at: "desc" },
+	limit: 12,
+	cursor,
+});
+const terms = await getTaxonomyTermsWithCacheHint("category", { includeCounts: false });
+if (Astro.cache?.enabled) {
+	Astro.cache.set(cacheHint);
+	Astro.cache.set(terms.cacheHint);
+}
+---
+
+<Site title="ブログ" description="株式会社山畑自動車のお知らせ・ブログ。お店からのお知らせや、車検・整備に役立つ情報をお届けします。">
+	<section class="page-hero">
+		<img src="/img/page-blog.jpg" alt="" width="1800" height="1200" fetchpriority="high" />
+		<div class="wrap"><p class="eyebrow">News &amp; Blog</p><h1>ブログ</h1></div>
+	</section>
+	<div class="wrap"><p class="crumb"><a href="/">HOME</a> ／ ブログ</p></div>
+	<section class="sec"><div class="wrap">
+		<BlogNav terms={terms.data} />
+		{posts.length === 0 ? (
+			<p class="empty">{cursor ? "これ以上の記事はありません。" : "まだ記事はありません。"}</p>
+		) : (
+			<div class="post-grid">{posts.map((post) => <PostCard post={post} />)}</div>
+		)}
+		{nextCursor && (
+			<p class="more"><a class="btn btn-outline" href={`/blog?cursor=${encodeURIComponent(nextCursor)}`}>次の記事へ<svg><use href="#i-arrow"></use></svg></a></p>
+		)}
+	</div></section>
+</Site>

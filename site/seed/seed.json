@@ -1,0 +1,189 @@
+{
+  "$schema": "https://emdashcms.com/seed.schema.json",
+  "version": "1",
+  "meta": {
+    "name": "山畑自動車",
+    "description": "株式会社山畑自動車のホームページ（ブログ）",
+    "author": "株式会社山畑自動車"
+  },
+  "settings": {
+    "title": "株式会社山畑自動車",
+    "tagline": "奄美市名瀬の整備工場。車検・修理・整備・中古車販売・保険代理"
+  },
+  "collections": [
+    {
+      "slug": "posts",
+      "label": "ブログ記事",
+      "labelSingular": "記事",
+      "urlPattern": "/blog/{slug}",
+      "supports": [
+        "drafts",
+        "revisions",
+        "preview",
+        "scheduling",
+        "search",
+        "seo"
+      ],
+      "fields": [
+        {
+          "slug": "title",
+          "label": "タイトル",
+          "type": "string",
+          "required": true,
+          "searchable": true
+        },
+        {
+          "slug": "featured_image",
+          "label": "アイキャッチ画像",
+          "type": "image"
+        },
+        {
+          "slug": "content",
+          "label": "本文",
+          "type": "portableText",
+          "searchable": true
+        },
+        {
+          "slug": "excerpt",
+          "label": "概要（一覧に表示する短い説明）",
+          "type": "text"
+        }
+      ]
+    }
+  ],
+  "taxonomies": [
+    {
+      "name": "category",
+      "label": "カテゴリー",
+      "labelSingular": "カテゴリー",
+      "hierarchical": true,
+      "collections": [
+        "posts"
+      ],
+      "terms": [
+        {
+          "slug": "news",
+          "label": "お知らせ"
+        },
+        {
+          "slug": "maintenance",
+          "label": "車検・整備"
+        },
+        {
+          "slug": "repair",
+          "label": "修理のこと"
+        },
+        {
+          "slug": "cars",
+          "label": "車選び"
+        },
+        {
+          "slug": "diary",
+          "label": "スタッフ日記"
+        }
+      ]
+    }
+  ],
+  "bylines": [
+    {
+      "id": "byline-shop",
+      "slug": "yamabata-motors",
+      "displayName": "山畑自動車"
+    }
+  ],
+  "content": {
+    "posts": [
+      {
+        "id": "post-sample",
+        "slug": "sample",
+        "status": "draft",
+        "bylines": [
+          {
+            "byline": "byline-shop"
+          }
+        ],
+        "taxonomies": {
+          "category": [
+            "news"
+          ]
+        },
+        "data": {
+          "title": "【サンプル】ブログ記事の見本",
+          "excerpt": "管理画面での記事の書き方を確認するための見本です。公開前に削除してください。",
+          "content": [
+            {
+              "_type": "block",
+              "_key": "a",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "as",
+                  "text": "この記事は、管理画面での書き方と表示を確認するための見本です。実際の記事を書いたら、この記事は削除してください。",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "bs",
+                  "text": "見出しの例",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "c",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "cs",
+                  "text": "本文の途中に見出しを入れると、読みやすくなります。写真は「アイキャッチ画像」と本文の両方に入れられます。",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "d",
+              "style": "h3",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "ds",
+                  "text": "小見出しの例",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "e",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "es",
+                  "text": "お知らせ（休業日など）、車検・整備のコツ、修理のこと、車選び、スタッフ日記などのカテゴリーを用意しています。",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

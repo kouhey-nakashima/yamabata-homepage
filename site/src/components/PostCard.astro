@@ -1,0 +1,30 @@
+---
+import { Image } from "emdash/ui";
+import { formatDate } from "../utils/format";
+
+import type { Post } from "../../emdash-env";
+
+interface Props {
+	post: { id: string; data: Post };
+}
+const { post } = Astro.props;
+const cat = post.data.terms?.category?.[0];
+---
+
+<a class="post-card" href={`/blog/${post.id}`}>
+	<div class="post-card__img">
+		{post.data.featured_image ? (
+			<Image image={post.data.featured_image} width={720} height={480} />
+		) : (
+			<img src="/img/blog-noimage.jpg" width="720" height="480" alt="" loading="lazy" />
+		)}
+	</div>
+	<div class="post-card__body">
+		<p class="post-meta">
+			<time>{formatDate(post.data.publishedAt)}</time>
+			{cat && <span class="voice-tag">{cat.label}</span>}
+		</p>
+		<h3>{post.data.title}</h3>
+		{post.data.excerpt && <p class="post-card__excerpt">{post.data.excerpt}</p>}
+	</div>
+</a>

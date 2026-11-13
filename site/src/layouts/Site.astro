@@ -1,0 +1,142 @@
+---
+/**
+ * 全ページ共通のレイアウト（ヘッダー・フッター・お問い合わせ・スマホ固定バー）。
+ * EmDash の head/body フック（SEO・プラグイン）もここで差し込む。
+ */
+import { EmDashHead, EmDashBodyStart, EmDashBodyEnd } from "emdash/ui";
+import { createPublicPageContext } from "emdash/page";
+import Contact from "../components/Contact.astro";
+import { NAV, SHOP } from "../data/site";
+import "../styles/site.css";
+
+interface Props {
+	title: string;
+	description?: string;
+	image?: string | null;
+	type?: "website" | "article";
+	publishedTime?: string | null;
+	modifiedTime?: string | null;
+	/** ブログ記事など CMS コンテンツのページで渡す */
+	content?: { collection: string; id: string; slug?: string | null };
+	/** トップページなど、お問い合わせを自前で置くページは false */
+	contact?: boolean;
+}
+
+const {
+	title,
+	description,
+	image,
+	type = "website",
+	publishedTime,
+	modifiedTime,
+	content,
+	contact = true,
+} = Astro.props;
+
+const fullTitle = title === SHOP.name ? title : `${title}｜${SHOP.name}`;
+
+const pageCtx = createPublicPageContext({
+	Astro,
+	kind: content ? "content" : "custom",
+	pageType: type,
+	title: fullTitle,
+	pageTitle: title,
+	description,
+	image,
+	content,
+	seo: { ogImage: image },
+	articleMeta: { publishedTime, modifiedTime },
+	siteName: SHOP.name,
+});
+
+const path = Astro.url.pathname.replace(/\/$/, "") || "/";
+function current(href: string): "page" | undefined {
+	if (href === "/") return path === "/" ? "page" : undefined;
+	return path === href || path.startsWith(`${href}/`) ? "page" : undefined;
+}
+---
+
+<!doctype html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{fullTitle}</title>
+		<EmDashHead page={pageCtx} />
+		<link rel="icon" href="/favicon.png" />
+		<link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+		<link rel="alternate" type="application/rss+xml" title={`${SHOP.name} ブログ`} href="/rss.xml" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Libre+Caslon+Text:wght@700&family=Montserrat:wght@600;700&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<EmDashBodyStart page={pageCtx} />
+		<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+			<symbol id="i-arrow" viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></symbol>
+			<symbol id="i-diag" viewBox="0 0 16 16"><path d="M4 12L12 4M6 4h6v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></symbol>
+			<symbol id="i-tel" viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1z" fill="currentColor"></path></symbol>
+			<symbol id="i-chat" viewBox="0 0 24 24"><path d="M12 3C6.5 3 2 6.6 2 11c0 3.9 3.5 7.2 8.3 7.9.3.1.8.2.9.5.1.3.1.7 0 1l-.1.9c0 .3-.2 1 .9.6 1.1-.5 6-3.5 8.2-6.1C21.7 14.2 22 12.6 22 11c0-4.4-4.5-8-10-8z" fill="currentColor"></path></symbol>
+		</svg>
+
+		<header>
+			<div class="wrap hd">
+				<a href="/" class="logo" aria-label={`${SHOP.name} トップ`}>
+					<img class="logo-img" src="/img/logo.png" width="760" height="183" alt="YAMABATA MOTORS" />
+					<span class="logo-ja">株式会社<br />山畑自動車</span>
+				</a>
+				<nav aria-label="メインメニュー">
+					<ul>
+						{NAV.map((item) => (
+							<li><a href={item.href} aria-current={current(item.href)}>{item.label}</a></li>
+						))}
+					</ul>
+				</nav>
+				<div class="hd-right">
+					<a class="hd-tel" href={SHOP.telHref}><small>お電話でのご相談</small>{SHOP.tel}</a>
+					<a class="btn btn-primary" href="#contact">お問い合わせ<svg><use href="#i-arrow"></use></svg></a>
+					<button class="menu-btn" aria-label="メニューを開く" aria-expanded="false"><span></span><span></span><span></span></button>
+				</div>
+			</div>
+		</header>
+
+		<main>
+			<slot />
+			{contact && <Contact />}
+		</main>
+
+		<footer>
+			<div class="wrap ft">
+				<a href="/" class="logo">
+					<img class="logo-img" src="/img/logo.png" width="760" height="183" alt="YAMABATA MOTORS" />
+					<span class="logo-ja">株式会社<br />山畑自動車</span>
+				</a>
+				<ul>
+					{NAV.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+				</ul>
+				<p class="copy">Copyright © {SHOP.name} All Rights Reserved.</p>
+			</div>
+		</footer>
+
+		<div class="sp-bar">
+			<a class="tel" href={SHOP.telHref}><svg><use href="#i-tel"></use></svg>電話する</a>
+			<a class="line" href={SHOP.line} target="_blank" rel="noopener"><svg><use href="#i-chat"></use></svg>LINEで相談</a>
+		</div>
+
+		<script>
+			const btn = document.querySelector<HTMLButtonElement>(".menu-btn");
+			btn?.addEventListener("click", () => {
+				const open = document.body.classList.toggle("nav-open");
+				btn.setAttribute("aria-expanded", open ? "true" : "false");
+				btn.setAttribute("aria-label", open ? "メニューを閉じる" : "メニューを開く");
+			});
+			document.querySelectorAll("nav a").forEach((a) =>
+				a.addEventListener("click", () => document.body.classList.remove("nav-open")),
+			);
+		</script>
+		<EmDashBodyEnd page={pageCtx} />
+	</body>
+</html>

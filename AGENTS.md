@@ -21,4 +21,10 @@
 ## その他
 - 日本語。スマホでの閲覧を主に想定し、タブレット・PCにも対応する。
 - 秘密値（APIトークンなど）はコード・ログ・文書に書かない。
-- 存在しないコマンドを実行済みと報告しない。開発コマンド（lint・build など）は基盤が決まってから定義する。
+- 存在しないコマンドを実行済みと報告しない。開発コマンドは `site/` で `pnpm dev`・`pnpm typecheck`・`pnpm build`。
+
+## EmDash（`site/`）
+- EmDash の作法は `site/AGENTS.md` と `site/.agents/skills/` を読む。
+- 固定ページは `site/src/pages/*.astro`、共通部品は `site/src/layouts/Site.astro`・`site/src/components/`、店舗情報とメニューは `site/src/data/site.ts`、見た目は `site/src/styles/site.css`。
+- ブログ記事は管理画面で書くもの。テスト記事を本番に入れない。`seed/seed.json` の見本記事は下書き（draft）のままにする。
+- 試作（`prototype/`）を直したら `site/` にも反映する（公開後は `site/` だけを直す）。
