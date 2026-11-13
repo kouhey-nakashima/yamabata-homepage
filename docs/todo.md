@@ -19,7 +19,7 @@
 
 - [ ] 下層ページ（車検・修理・整備・保険代理・修理事例・お客様の声・会社概要）の現行内容を確認（スクリーンショット）
 
-- [ ] 確認用URL：Cloudflare PagesでGitHub連携（出力ディレクトリ`prototype`、ビルドなし）。検索エンジンに載らないよう`_headers`（X-Robots-Tag: noindex）と`robots.txt`を追加済み。オーナーの設定待ち。本番（EmDash）とは別の一時的な確認環境
+- [x] 確認用URL（2026-11-13公開・確認済み）：https://yamabata-homepage.pages.dev/ （Cloudflare Pages、GitHub連携、ブランチ`claude/affectionate-rubin-nlxo58`、出力`prototype`、ビルドなし）。プッシュで自動更新。全画像・ロゴ200、`X-Robots-Tag: noindex`と`robots.txt`が有効、iPhone表示で電話・LINEボタンのリンク確認。URLを知る人は誰でも閲覧可（アクセス制限なし）。本番（EmDash）とは別の一時環境
 
 ## CRMとのつなぎ込み
 - [x] LINE友だち追加のボタン（https://lin.ee/91lyUYb、試作に反映）。QRコードは未作成。CRMの実店舗用LINE切替時は同じアカウントか確認

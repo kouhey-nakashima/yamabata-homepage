@@ -4,7 +4,7 @@
 
 - **公開URL（予定）**：`https://yamabata-motors.com`
 - **基盤**：Cloudflare（EmDash）。CRMと同じCloudflareアカウント
-- **状態**：準備中です。コード・デザイン・ページ構成は**まだありません**
+- **状態**：トップページの試作（`prototype/`）のみ。確認用URL：https://yamabata-homepage.pages.dev/ （検索除外。本番ではありません）
 
 ## CRMとの関係
 
