@@ -15,6 +15,7 @@
 ## D-003 基盤（確定、2026-11-13）
 - Cloudflare（EmDash）で運用する。CRMと同じCloudflareアカウント・請求にまとめる（car-auto-crm の D-012）。
 - HP用のデータベースを作る場合も、CRMのD1とは別にする。
+- Cloudflareアカウント：`yamabata-motors.com`のゾーンがあるアカウント（CRMの`car-auto-crm-dev`と同じ）を使う（2026-11-13 オーナー確認）。確認用URL（Cloudflare Pages）もこのアカウントに作る。
 
 ## D-004 お問い合わせはLINEと電話（確定、2026-11-13）
 - 現行サイトの「メールでお問い合わせ」は廃止。HPのお問い合わせは**LINE公式アカウントと電話**のみ（D-001の「HPは個人情報を扱わない」と一致）。
