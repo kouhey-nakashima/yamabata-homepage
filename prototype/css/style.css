@@ -144,12 +144,11 @@ footer ul{display:flex;gap:22px;list-style:none;font-size:13px;flex-wrap:wrap}
   section{padding:72px 0}
   .about-grid,.company-grid,.contact-grid{grid-template-columns:1fr;gap:32px}
   .cards{grid-template-columns:1fr}
-  .card{flex-direction:row}
-  .card .ph{aspect-ratio:auto;width:38%;min-height:150px}
+  .card .ph{aspect-ratio:16/9;width:100%;height:auto}
   .card img.ph,img.photo{object-fit:cover;width:100%;height:auto;background:#dfe8f1}
 .hero-img img.ph{height:100%}
 .ph::after{font-size:10px;padding:4px 8px}
-  .card-body{padding:18px 48px 18px 18px}
+  .card-body{padding:18px 64px 22px 20px}
   .card h3{font-size:17px}
   .contact-actions{justify-self:stretch;max-width:none}
   .info dl{flex-direction:column;gap:4px}
@@ -452,3 +451,5 @@ nav a[aria-current="page"]{color:var(--navy);font-weight:700}
   header .logo-ja{display:none}
   header .logo-img{height:30px}
 }
+
+@media (max-width:768px){ .cards{gap:16px} .card .ph::after{display:none} .card p{font-size:13.5px} }
