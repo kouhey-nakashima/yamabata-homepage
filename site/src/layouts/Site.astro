@@ -115,7 +115,11 @@ function current(href: string): "page" | undefined {
 				</nav>
 				<div class="hd-right">
 					<a class="hd-tel" href={SHOP.telHref}><small>お電話でのご相談</small>{SHOP.tel}</a>
-					<a class="btn btn-primary" href="#contact">お問い合わせ<svg><use href="#i-arrow"></use></svg></a>
+					<a class="hd-line" href={SHOP.line} target="_blank" rel="noopener" data-line="header">
+						<svg aria-hidden="true"><use href="#i-chat"></use></svg>
+						<span class="hd-line__txt"><small>友だち追加で</small>{LINE_CTA.short}</span>
+						<span class="hd-line__sp">LINE見積り</span>
+					</a>
 					<button class="menu-btn" aria-label="メニューを開く" aria-expanded="false"><span></span><span></span><span></span></button>
 				</div>
 			</div>
