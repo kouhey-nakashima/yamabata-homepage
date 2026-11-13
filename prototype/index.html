@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Libre+Caslon+Text:wght@700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
-<!-- 試作（プロトタイプ）。写真はすべて仮の枠。実際の写真・ロゴに差し替える。 -->
+<!-- 試作（プロトタイプ）。写真・ロゴは山畑自動車の素材（assets/original/）から書き出し。 -->
 <style>
 :root{
   --navy:#0f4a86; --navy-deep:#0b3a6b; --blue:#2f6fb5; --sky:#a9d3f5; --sky-pale:#eef6fd;
@@ -34,6 +34,8 @@ a{color:inherit;text-decoration:none}
 .btn-light{background:var(--sky);color:var(--navy-deep)}
 /* 仮の写真枠 */
 .ph{position:relative;background:linear-gradient(135deg,#c9d8e8,#8fb0d1 55%,#5f88b3);color:#fff;overflow:hidden}
+img.ph,img.photo{object-fit:cover;width:100%;height:auto;background:#dfe8f1}
+.hero-img img.ph{height:100%}
 .ph::after{content:attr(data-label);position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:13px;font-weight:700;letter-spacing:.1em;background:rgba(11,58,107,.55);padding:6px 14px;border-radius:999px;white-space:nowrap}
 
 /* header */
@@ -159,7 +161,9 @@ footer ul{display:flex;gap:22px;list-style:none;font-size:13px;flex-wrap:wrap}
   .cards{grid-template-columns:1fr}
   .card{flex-direction:row}
   .card .ph{aspect-ratio:auto;width:38%;min-height:150px}
-  .card .ph::after{font-size:10px;padding:4px 8px}
+  .card img.ph,img.photo{object-fit:cover;width:100%;height:auto;background:#dfe8f1}
+.hero-img img.ph{height:100%}
+.ph::after{font-size:10px;padding:4px 8px}
   .card-body{padding:18px 48px 18px 18px}
   .card h3{font-size:17px}
   .contact-actions{justify-self:stretch;max-width:none}
@@ -206,7 +210,7 @@ footer ul{display:flex;gap:22px;list-style:none;font-size:13px;flex-wrap:wrap}
 
 <main>
   <section class="hero" style="padding:0">
-    <div class="hero-img"><div class="ph" data-label="写真：店舗外観・スタッフ"></div></div>
+    <div class="hero-img"><img class="ph" src="img/hero.jpg" width="2000" height="1125" alt="山畑自動車の店舗外観（青い整備工場と看板）" fetchpriority="high"></div>
     <div class="hero-bubble" aria-hidden="true"></div>
     <svg class="road" viewBox="0 0 620 200" aria-hidden="true"><path d="M0 190C160 170 260 120 330 60S520 10 620 0" fill="none" stroke="#9aa9ba" stroke-width="1.2"/><path d="M0 200C170 186 290 150 370 90S540 30 620 26" fill="none" stroke="#9aa9ba" stroke-width="1.2"/><path d="M0 196C165 178 275 135 350 75S530 20 620 13" fill="none" stroke="#9aa9ba" stroke-width="1" stroke-dasharray="10 10"/></svg>
     <div class="wrap hero-grid">
@@ -237,7 +241,7 @@ footer ul{display:flex;gap:22px;list-style:none;font-size:13px;flex-wrap:wrap}
   <section class="about" id="about">
     <div class="blob" aria-hidden="true"></div>
     <div class="wrap about-grid">
-      <div class="photo ph" data-label="写真：店舗外観（看板と展示車）"></div>
+      <img class="photo" src="img/about.jpg" width="1600" height="1068" alt="シャッターを開けた山畑自動車の整備工場の中" loading="lazy">
       <div>
         <p class="eyebrow">About us</p>
         <h2>最善のサービスを<br><em>提供いたします。</em></h2>
@@ -257,19 +261,19 @@ footer ul{display:flex;gap:22px;list-style:none;font-size:13px;flex-wrap:wrap}
       </div>
       <div class="cards">
         <a class="card" href="#">
-          <div class="ph" data-label="写真：車検"></div>
+          <img class="ph" src="img/svc-shaken.jpg" width="900" height="600" alt="車の下回りを点検する整備士" loading="lazy">
           <div class="card-body"><span class="num">01</span><h3>車検</h3><p>国家資格整備士がお車の状態をスピーディーかつ的確に診断し、お客様のニーズに応じた車検プランをご提案いたします。</p><span class="arrow"><svg><use href="#i-diag"/></svg></span></div>
         </a>
         <a class="card" href="#">
-          <div class="ph" data-label="写真：修理・整備"></div>
+          <img class="ph" src="img/svc-repair.jpg" width="900" height="601" alt="整備工具が並ぶツールボックス" loading="lazy">
           <div class="card-body"><span class="num">02</span><h3>修理・整備</h3><p>お車を最良のコンディションに保つよう、プロのテクニカルスタッフが念入りな点検・整備を行います。</p><span class="arrow"><svg><use href="#i-diag"/></svg></span></div>
         </a>
         <a class="card" href="#">
-          <div class="ph" data-label="写真：新車・中古車"></div>
+          <img class="ph" src="img/svc-sales.jpg" width="900" height="600" alt="店舗前に並ぶ販売車両" loading="lazy">
           <div class="card-body"><span class="num">03</span><h3>新車・中古車販売</h3><p>仕入れから整備・販売に至るまで、常にお客様のご希望に寄り添います。</p><span class="arrow"><svg><use href="#i-diag"/></svg></span></div>
         </a>
         <a class="card" href="#">
-          <div class="ph" data-label="写真：保険代理"></div>
+          <img class="ph" src="img/svc-insurance.jpg" width="500" height="334" alt="店内の相談カウンター" loading="lazy">
           <div class="card-body"><span class="num">04</span><h3>保険代理</h3><p>安心して車に乗るために、万一の備えとして様々な自動車保険の中から、アドバイスさせていただきます。</p><span class="arrow"><svg><use href="#i-diag"/></svg></span></div>
         </a>
       </div>
