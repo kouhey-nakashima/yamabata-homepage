@@ -1,6 +1,6 @@
 ---
 /** LINE 友だち追加への誘導（30秒概算見積り）。PC では QR コードも表示 */
-import { LINE_CTA, SHOP } from "../data/site";
+import { ESTIMATE_LIVE, LINE_CTA, SHOP } from "../data/site";
 
 interface Props {
 	/** 解析用：どこに置いたボタンか */
@@ -9,25 +9,70 @@ interface Props {
 const { place } = Astro.props;
 ---
 
-<section class="line-cta" data-line={place}>
+<section class="lcta" data-line={place}>
 	<div class="wrap">
-		<div class="line-cta__box">
-			<div class="line-cta__text">
-				<p class="line-cta__badge">LINE 公式アカウント</p>
-				<h2>{LINE_CTA.catch.split("、").map((part, i, arr) => (i < arr.length - 1 ? <>{part}、<br class="sp-br" /></> : part))}</h2>
-				<p class="line-cta__lead">{LINE_CTA.lead}</p>
-				<ol class="line-cta__steps">
-					{LINE_CTA.steps.map((s, i) => <li><span>{i + 1}</span>{s}</li>)}
+		<div class="lcta__box">
+			<svg class="lcta__road" viewBox="0 0 600 400" preserveAspectRatio="none" aria-hidden="true">
+				<path d="M-20 380C140 340 260 250 360 150S540 30 620 10" fill="none" stroke="#fff" stroke-width="1.5"></path>
+				<path d="M-20 400C160 370 290 290 400 190S560 70 620 50" fill="none" stroke="#fff" stroke-width="1.5"></path>
+				<path d="M-20 390C150 355 275 270 380 170S550 50 620 30" fill="none" stroke="#fff" stroke-width="1" stroke-dasharray="10 12"></path>
+			</svg>
+
+			<div class="lcta__text">
+				{ESTIMATE_LIVE ? (
+					<>
+						<p class="lcta__eyebrow">ESTIMATE ON LINE</p>
+						<p class="lcta__q">車検、いくらかかる？</p>
+						<h2 class="lcta__catch">
+							<span class="lcta__line">LINEで</span><span class="lcta__num">30</span><span class="lcta__unit">秒</span>
+							<span class="lcta__sub">車検の概算見積り</span>
+						</h2>
+					</>
+				) : (
+					<>
+						<p class="lcta__eyebrow">CONTACT ON LINE</p>
+						<h2 class="lcta__catch lcta__catch--plain">{LINE_CTA.catch}</h2>
+					</>
+				)}
+				<p class="lcta__lead">{LINE_CTA.lead}</p>
+				<ol class="lcta__steps">
+					{LINE_CTA.steps.map((s, i) => (
+						<li><span class="lcta__stepno">STEP {i + 1}</span>{s}</li>
+					))}
 				</ol>
-				<a class="btn btn-line line-cta__btn" href={SHOP.line} target="_blank" rel="noopener" data-line={place}>
-					<svg><use href="#i-chat"></use></svg>{LINE_CTA.button}
-				</a>
-				{LINE_CTA.note && <p class="line-cta__note">{LINE_CTA.note}</p>}
+				<div class="lcta__actions">
+					<a class="lcta__btn" href={SHOP.line} target="_blank" rel="noopener" data-line={place}>
+						<svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chat"></use></svg>
+						{ESTIMATE_LIVE ? <span><small>友だち追加して</small>30秒で見積る</span> : <span>{LINE_CTA.button}</span>}
+					</a>
+					<div class="lcta__qr">
+						<img src="/img/line-qr.png" width="290" height="290" alt="LINE友だち追加のQRコード" loading="lazy" />
+						<span>スマホで<br />読み取り</span>
+					</div>
+				</div>
+				{LINE_CTA.note && <p class="lcta__note">{LINE_CTA.note}</p>}
 			</div>
-			<div class="line-cta__qr">
-				<img src="/img/line-qr.png" width="290" height="290" alt="LINE友だち追加のQRコード" loading="lazy" />
-				<p>スマホのカメラで読み取って友だち追加</p>
-			</div>
+
+			{ESTIMATE_LIVE && (
+				<div class="lcta__phone" aria-hidden="true">
+					<div class="phone">
+						<div class="phone__bar"><span class="phone__avatar"></span>山畑自動車</div>
+						<div class="phone__chat">
+							<p class="bub bub--in">車検の概算見積りですね。<br />お車の種類を選んでください。</p>
+							<div class="chips"><span class="chip chip--on">軽自動車</span><span class="chip">普通車</span><span class="chip">中型車</span></div>
+							<p class="bub bub--out">軽自動車</p>
+							<p class="bub bub--in">初年度登録からの年数は？</p>
+							<p class="bub bub--out">13年未満</p>
+							<div class="bub bub--in bub--result">
+								<small>車検費用の目安</small>
+								<b>¥ ◯◯,◯◯◯<i>〜</i></b>
+								<span>ご予約もこのままLINEで</span>
+							</div>
+						</div>
+						<div class="phone__timer"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8" fill="none" stroke="currentColor" stroke-width="2"></circle><path d="M12 9v4l3 2M9 2h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>約30秒</div>
+					</div>
+				</div>
+			)}
 		</div>
 	</div>
 </section>

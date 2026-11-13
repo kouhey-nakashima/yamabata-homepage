@@ -9,7 +9,7 @@
 
 ## 実装済み（`site/`、2026-11-13、ローカル確認済み・未公開）
 ### LINE誘導
-- 「LINEで30秒、車検の概算見積り」の誘導枠（`src/components/LineCta.astro`）：トップ（ヒーロー直下）、車検（料金の直後）、修理・整備、修理事例、中古車販売。PCではQRコード（`public/img/line-qr.png`、`https://lin.ee/91lyUYb`）も表示
+- 「LINEで30秒、車検の概算見積り」の誘導枠（`src/components/LineCta.astro`。2026-11-13にデザイン刷新：紺の背景に大きな「30秒」、LINE画面のイメージ、立体の緑ボタン）：トップ（ヒーロー直下）、車検（料金の直後）、修理・整備、修理事例、中古車販売。PCではQRコード（`public/img/line-qr.png`、`https://lin.ee/91lyUYb`）も表示
 - トップのヒーローに緑の「LINEで30秒見積り」ボタン、スマホ下部の固定ボタン、お問い合わせ欄のボタンも同じ文言
 - 文言は `src/data/site.ts` の `LINE_CTA` にまとめている。**30秒見積り（CRM側のLINE内見積フォーム、LIFF）が動く前に本番公開する場合は `ESTIMATE_LIVE = false`** にすると「LINEで相談」に切り替わる（できないことをうたわない）
 - 概算である旨の注記（「正式な金額は点検後」）を必ず表示（CRMのD-029と同じ）
