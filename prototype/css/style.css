@@ -284,3 +284,39 @@ nav a[aria-current="page"]{color:var(--navy);font-weight:700}
   .voice-tag{display:inline-block;margin:0 0 0 8px}
   .voice-text{font-size:14px;line-height:1.85}
 }
+
+/* ===== ナビ7項目対応 ===== */
+@media (min-width:1025px){ nav ul{gap:20px;font-size:13.5px} }
+@media (min-width:1025px) and (max-width:1279px){ .hd-tel{display:none} }
+/* ===== 修理事例 ===== */
+.case-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.case{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden}
+.case-ba{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--line)}
+.ba{aspect-ratio:4/3;background:linear-gradient(135deg,#c9d8e8,#8fb0d1);position:relative}
+.ba.after{background:linear-gradient(135deg,#a9d3f5,#2f6fb5)}
+.ba span{position:absolute;left:10px;top:10px;font-family:Montserrat,sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;color:#fff;background:rgba(11,58,107,.7);padding:3px 10px;border-radius:999px}
+.case-body{padding:22px 24px 26px}
+.case-body h3{font-size:18px;font-weight:700;margin:10px 0 12px;line-height:1.5}
+.case-body dl{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px;margin-bottom:10px}
+.case-body dt{display:inline;color:var(--muted);margin-right:6px}
+.case-body dd{display:inline;font-weight:700}
+.case-body p{font-size:14px;color:#444}
+.insta-cta{display:flex;align-items:center;gap:22px;background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px 32px;max-width:900px;margin:0 auto}
+.insta-cta .ic{flex:none;width:60px;height:60px;border-radius:16px;background:var(--sky-pale);color:var(--navy);display:grid;place-items:center}
+.insta-cta .ic svg{width:30px;height:30px}
+.insta-cta b{font-size:17px}
+.insta-cta p{font-size:13.5px;color:var(--muted)}
+.insta-cta .btn{margin-left:auto;white-space:nowrap}
+/* ===== 中古車販売 ===== */
+.point-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.point{background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px 22px}
+.point .ic{width:56px;height:56px;border-radius:16px;background:var(--sky-pale);color:var(--navy);display:grid;place-items:center;margin-bottom:16px}
+.point .ic svg{width:28px;height:28px}
+.point h3{font-size:16.5px;font-weight:700;line-height:1.5;margin-bottom:8px}
+.point p{font-size:13.5px;color:#555}
+@media (max-width:1024px){ .point-grid{grid-template-columns:repeat(2,1fr)} }
+@media (max-width:768px){
+  .case-grid,.point-grid{grid-template-columns:1fr}
+  .insta-cta{flex-direction:column;align-items:flex-start;padding:24px}
+  .insta-cta .btn{margin-left:0}
+}
