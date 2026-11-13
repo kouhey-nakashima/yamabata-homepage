@@ -19,6 +19,8 @@
 
 - [ ] 下層ページ（車検・修理・整備・保険代理・修理事例・お客様の声・会社概要）の現行内容を確認（スクリーンショット）
 
+- [ ] 確認用URL：Cloudflare PagesでGitHub連携（出力ディレクトリ`prototype`、ビルドなし）。検索エンジンに載らないよう`_headers`（X-Robots-Tag: noindex）と`robots.txt`を追加済み。オーナーの設定待ち。本番（EmDash）とは別の一時的な確認環境
+
 ## CRMとのつなぎ込み
 - [x] LINE友だち追加のボタン（https://lin.ee/91lyUYb、試作に反映）。QRコードは未作成。CRMの実店舗用LINE切替時は同じアカウントか確認
 - [ ] 車検見積フォーム（CRM側、LIFF。未実装）への案内
