@@ -1,8 +1,9 @@
 ---
 import Site from "../layouts/Site.astro";
+import LineCta from "../components/LineCta.astro";
 ---
 
-<Site title="修理・整備" description="奄美市の株式会社山畑自動車の修理・整備。板金・タイヤ・バッテリー・オイル交換など、総合整備工場としてまとめて対応します。">
+<Site title="奄美市の車の修理・整備・板金" description="奄美市の株式会社山畑自動車の修理・整備。板金・タイヤ・バッテリー・オイル交換など、総合整備工場としてまとめて対応します。">
 
   <section class="page-hero">
     <img src="/img/page-repair.jpg" alt="" width="1800" height="1201" fetchpriority="high">
@@ -34,4 +35,5 @@ import Site from "../layouts/Site.astro";
     <div class="sec-head"><h2>FAQ</h2><p>よくある質問</p></div>
     <div class="faq"><details><summary><span class="qa">Q</span><span>部品を持ち込んでの修理は可能ですか。</span></summary><div class="ans"><span class="qa a">A</span><div>はい、可能です。<br>インターネットで購入した部品や前の車の部品を取り外して使用することも可能ですので、ご希望の方はご相談ください。<br>※ネット等で注文される場合は、注文前にご相談ください。</div></div></details><details><summary><span class="qa">Q</span><span>輸入車（外車）の修理は可能ですか。</span></summary><div class="ans"><span class="qa a">A</span><div>はい、可能です。当社は、輸入車販売会社の納車前整備・修理等も行っております。<br>アメリカ車、イタリア車、ドイツ車の整備承ります。</div></div></details><details><summary><span class="qa">Q</span><span>修理の対応は、どこの保険会社でも可能ですか。</span></summary><div class="ans"><span class="qa a">A</span><div>はい、お客様が入られている保険会社がどちらであっても、保険修理を承ることが出来ますので、ご安心ください。</div></div></details><details><summary><span class="qa">Q</span><span>車検をお願いしたい車を家や会社まで取りに来てもらうことはできますか？</span></summary><div class="ans"><span class="qa a">A</span><div>はい、下記のエリア内であれば対応可能です。<br>奄美市、龍郷町、瀬戸内町など、その他のエリアであってもお気軽にご相談ください。</div></div></details><details><summary><span class="qa">Q</span><span>車検で車を預けている間、代車を借りることはできますか？</span></summary><div class="ans"><span class="qa a">A</span><div>車をお預かりしている期間中は代車を無料貸し出しております。</div></div></details></div>
   </div></section>
+  <LineCta place="repair" />
 </Site>

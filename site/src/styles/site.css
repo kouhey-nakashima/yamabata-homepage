@@ -361,3 +361,29 @@ nav a[aria-current="page"]{color:var(--navy);font-weight:700}
 /* ナビ8項目 */
 @media (min-width:1025px){ nav ul{gap:16px;font-size:13px} }
 @media (min-width:1025px) and (max-width:1399px){ .hd-tel{display:none} }
+
+/* ===== LINE 誘導（30秒見積り） ===== */
+.line-cta{padding:56px 0}
+.line-cta__box{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;background:linear-gradient(135deg,#eafaf0,#f3fbff);border:2px solid #06c755;border-radius:28px;padding:40px 48px;position:relative;overflow:hidden}
+.line-cta__badge{display:inline-block;background:#06c755;color:#fff;font-size:12px;font-weight:700;letter-spacing:.08em;padding:4px 14px;border-radius:999px}
+.line-cta h2{font-size:clamp(24px,3vw,36px);font-weight:900;line-height:1.4;letter-spacing:.04em;margin:12px 0 10px}
+.line-cta__lead{font-size:15px;color:#333;margin-bottom:18px}
+.line-cta__steps{list-style:none;display:flex;flex-wrap:wrap;gap:10px 22px;margin-bottom:24px;font-size:14px;font-weight:700}
+.line-cta__steps li{display:flex;align-items:center;gap:8px}
+.line-cta__steps span{width:26px;height:26px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-family:Montserrat,sans-serif;font-size:13px}
+.line-cta__btn{font-size:17px;padding:18px 34px;box-shadow:0 8px 20px rgba(6,199,85,.3)}
+.line-cta__note{font-size:12px;color:var(--muted);margin-top:12px}
+.line-cta__qr{text-align:center;background:#fff;border-radius:20px;padding:18px 18px 12px;border:1px solid var(--line)}
+.line-cta__qr img{width:160px;height:160px}
+.line-cta__qr p{font-size:11.5px;color:var(--muted);margin-top:6px}
+.btn-line-hero{background:#06c755;color:#fff;border:2px solid #06c755}
+.btn-line-hero:hover{background:#05b04b}
+@media (max-width:768px){
+  .line-cta{padding:40px 0}
+  .line-cta__box{grid-template-columns:1fr;padding:28px 22px;border-radius:22px}
+  .line-cta__qr{display:none}
+  .line-cta__steps{flex-direction:column;gap:8px}
+  .line-cta__btn{width:100%;justify-content:center}
+}
+.sp-br{display:none}
+@media (max-width:768px){ .sp-br{display:inline} }

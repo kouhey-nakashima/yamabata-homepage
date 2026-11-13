@@ -16,6 +16,8 @@
 - [ ] デザインの方向性を決める
 - [x] EmDash版を作成（2026-11-13、`site/`）：試作の8ページをAstroへ移植、ブログ（一覧・記事・カテゴリー・RSS・トップの新着3件）を追加。ローカルで全ページ200、PC・スマホで横はみ出しなし・画面エラーなし、`pnpm build`・`pnpm typecheck`（0エラー）成功。**Cloudflareへの公開は未実施**
 - [ ] EmDash版の公開（[deploy.md](deploy.md)）：Workers＋GitHub連携の設定（オーナー）→ 管理者の初期設定をすぐ行う → 動作確認
+- [x] 目的（D-009）に合わせた改修（2026-11-13、`site/`）：「LINEで30秒、車検の概算見積り」誘導枠を5ページ＋ヒーロー・固定ボタン・お問い合わせに配置（PCはQRコード）、地域名入りタイトル・canonical・OGP・店舗の構造化データ・固定ページのサイトマップ、GA4でLINEクリック計測の仕組み（ID未設定）。`pnpm typecheck` 0エラー・`pnpm build` 成功、ローカルで表示確認
+- [ ] 公開前：CRMのLINE内見積フォームが未完成なら `ESTIMATE_LIVE=false` にする／GA4・Search Console・Googleビジネスプロフィールの設定（[operations.md](operations.md)）
 - [ ] ブログ記事の書き方の簡単なマニュアル（管理画面の操作、写真の入れ方、カテゴリー）
 - [ ] 今のホームページの内容とDNSレコード（Web・メール）を確認し、切り替え手順を作る
 

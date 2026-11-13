@@ -2,9 +2,11 @@
 import Site from "../layouts/Site.astro";
 import Contact from "../components/Contact.astro";
 import LatestPosts from "../components/LatestPosts.astro";
+import LineCta from "../components/LineCta.astro";
+import { LINE_CTA, SHOP } from "../data/site";
 ---
 
-<Site title="株式会社山畑自動車" description="奄美市名瀬浦上の整備工場、株式会社山畑自動車。車検・修理・整備・新車中古車販売・保険代理までワンストップで対応します。" contact={false}>
+<Site title="奄美市の車検・修理・整備・中古車販売" description="奄美市名瀬浦上の整備工場、株式会社山畑自動車。車検・修理・整備・中古車販売・保険代理までワンストップ。LINEで30秒、車検の概算見積りができます。" contact={false}>
 
   <section class="hero" style="padding:0">
     <div class="hero-img"><img class="ph" src="/img/hero.jpg" width="2000" height="1125" alt="山畑自動車の店舗外観（青い整備工場と看板）" fetchpriority="high"></div>
@@ -17,7 +19,7 @@ import LatestPosts from "../components/LatestPosts.astro";
         <p class="lead">お客様の大切なお車の安心・安全な<br>カーライフをサポートいたします。</p>
         <div class="actions">
           <a class="btn btn-primary" href="#services">事業内容を見る<svg><use href="#i-arrow"/></svg></a>
-          <a class="btn btn-outline" href="#contact">無料お見積り<svg><use href="#i-diag"/></svg></a>
+          <a class="btn btn-line-hero" href={SHOP.line} target="_blank" rel="noopener" data-line="hero"><svg><use href="#i-chat"/></svg>{LINE_CTA.short}</a>
         </div>
       </div>
     </div>
@@ -34,6 +36,8 @@ import LatestPosts from "../components/LatestPosts.astro";
       </dl>
     </div>
   </div>
+
+  <LineCta place="top" />
 
   <section class="about" id="about">
     <div class="blob" aria-hidden="true"></div>

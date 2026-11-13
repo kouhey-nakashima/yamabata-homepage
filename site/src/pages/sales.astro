@@ -1,8 +1,9 @@
 ---
 import Site from "../layouts/Site.astro";
+import LineCta from "../components/LineCta.astro";
 ---
 
-<Site title="中古車販売" description="株式会社山畑自動車の新車・中古車販売。ご希望をお聞きしてお車を探し、自社工場で整備してお渡しします。購入後の車検・整備・保険もお任せください。">
+<Site title="奄美市の中古車販売・新車のご相談" description="株式会社山畑自動車の新車・中古車販売。ご希望をお聞きしてお車を探し、自社工場で整備してお渡しします。購入後の車検・整備・保険もお任せください。">
 
   <section class="page-hero">
     <img src="/img/page-sales.jpg" alt="" width="1800" height="1200" fetchpriority="high">
@@ -31,4 +32,5 @@ import Site from "../layouts/Site.astro";
     <div class="sec-head"><h2>FAQ</h2><p>よくある質問</p></div>
     <div class="faq"><details><summary><span class="qa">Q</span><span>店頭にない車でも探してもらえますか？</span></summary><div class="ans"><span class="qa a">A</span><div>はい。ご希望の車種・年式・ご予算などをお聞きして、お探しします。まずはLINEかお電話でご相談ください。</div></div></details><details><summary><span class="qa">Q</span><span>購入後の車検や整備もお願いできますか？</span></summary><div class="ans"><span class="qa a">A</span><div>はい。当社は整備工場ですので、購入後の点検・車検・修理まで同じ窓口で対応いたします。</div></div></details><details><summary><span class="qa">Q</span><span>自動車保険の加入も一緒にできますか？</span></summary><div class="ans"><span class="qa a">A</span><div>はい。当社は損保ジャパンの代理店です。お車のご購入と合わせて保険のご相談も承ります。</div></div></details><details><summary><span class="qa">Q</span><span>支払い方法を教えてください。</span></summary><div class="ans"><span class="qa a">A</span><div>【試作メモ：要確認】車検ページでは「現金・クレジット・ローン・PayPay」となっています。車両購入でも同じか教えてください。</div></div></details></div>
   </div></section>
+  <LineCta place="sales" />
 </Site>

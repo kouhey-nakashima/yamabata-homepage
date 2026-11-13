@@ -6,7 +6,7 @@
 import { EmDashHead, EmDashBodyStart, EmDashBodyEnd } from "emdash/ui";
 import { createPublicPageContext } from "emdash/page";
 import Contact from "../components/Contact.astro";
-import { NAV, SHOP } from "../data/site";
+import { GA4_ID, LINE_CTA, LOCAL_BUSINESS, NAV, SHOP } from "../data/site";
 import "../styles/site.css";
 
 interface Props {
@@ -34,17 +34,21 @@ const {
 } = Astro.props;
 
 const fullTitle = title === SHOP.name ? title : `${title}｜${SHOP.name}`;
+const siteOrigin = Astro.site ?? Astro.url;
+const canonical = new URL(Astro.url.pathname, siteOrigin).href;
+const ogImage = image ?? new URL("/img/og.jpg", siteOrigin).href;
 
 const pageCtx = createPublicPageContext({
 	Astro,
 	kind: content ? "content" : "custom",
 	pageType: type,
 	title: fullTitle,
-	pageTitle: title,
+	pageTitle: fullTitle,
 	description,
-	image,
+	canonical,
+	image: ogImage,
 	content,
-	seo: { ogImage: image },
+	seo: { ogImage },
 	articleMeta: { publishedTime, modifiedTime },
 	siteName: SHOP.name,
 });
@@ -63,6 +67,20 @@ function current(href: string): "page" | undefined {
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>{fullTitle}</title>
 		<EmDashHead page={pageCtx} />
+		<meta property="og:locale" content="ja_JP" />
+		<script type="application/ld+json" set:html={JSON.stringify(LOCAL_BUSINESS)} />
+		{GA4_ID && (
+			<>
+				<script async src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}></script>
+				<script is:inline define:vars={{ GA4_ID }}>
+					window.dataLayer = window.dataLayer || [];
+					function gtag(){dataLayer.push(arguments);}
+					window.gtag = gtag;
+					gtag("js", new Date());
+					gtag("config", GA4_ID);
+				</script>
+			</>
+		)}
 		<link rel="icon" href="/favicon.png" />
 		<link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
 		<link rel="alternate" type="application/rss+xml" title={`${SHOP.name} ブログ`} href="/rss.xml" />
@@ -123,7 +141,7 @@ function current(href: string): "page" | undefined {
 
 		<div class="sp-bar">
 			<a class="tel" href={SHOP.telHref}><svg><use href="#i-tel"></use></svg>電話する</a>
-			<a class="line" href={SHOP.line} target="_blank" rel="noopener"><svg><use href="#i-chat"></use></svg>LINEで相談</a>
+			<a class="line" href={SHOP.line} target="_blank" rel="noopener" data-line="sp-bar"><svg><use href="#i-chat"></use></svg>{LINE_CTA.short}</a>
 		</div>
 
 		<script>
@@ -132,6 +150,15 @@ function current(href: string): "page" | undefined {
 				const open = document.body.classList.toggle("nav-open");
 				btn.setAttribute("aria-expanded", open ? "true" : "false");
 				btn.setAttribute("aria-label", open ? "メニューを閉じる" : "メニューを開く");
+			});
+			// LINE ボタンのクリックを解析に送る（GA4 が有効なときだけ）
+			document.addEventListener("click", (e) => {
+				const a = (e.target as Element | null)?.closest?.('a[href^="https://lin.ee/"]');
+				const w = window as unknown as { gtag?: (...args: unknown[]) => void };
+				if (a && w.gtag) {
+					const place = a.getAttribute("data-line") ?? a.closest("[data-line]")?.getAttribute("data-line") ?? "other";
+					w.gtag("event", "line_click", { placement: place, page_path: location.pathname });
+				}
 			});
 			document.querySelectorAll("nav a").forEach((a) =>
 				a.addEventListener("click", () => document.body.classList.remove("nav-open")),

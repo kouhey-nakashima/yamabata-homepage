@@ -1,8 +1,9 @@
 ---
 import Site from "../layouts/Site.astro";
+import LineCta from "../components/LineCta.astro";
 ---
 
-<Site title="修理事例" description="株式会社山畑自動車の修理・整備の事例。板金・塗装、足回り、エンジンなど奄美市の整備工場の作業例をご紹介します。">
+<Site title="修理・整備の事例" description="株式会社山畑自動車の修理・整備の事例。板金・塗装、足回り、エンジンなど奄美市の整備工場の作業例をご紹介します。">
 
   <section class="page-hero">
     <img src="/img/page-cases.jpg" alt="" width="1800" height="1200" fetchpriority="high">
@@ -117,4 +118,5 @@ import Site from "../layouts/Site.astro";
     <div class="insta-cta"><span class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="3.6" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="16.8" cy="7.2" r="1" fill="currentColor"/></svg></span><div><b>最新情報はInstagramで</b><p>お店の最新情報はInstagramをご覧ください。</p></div>
       <a class="btn btn-primary" href="https://www.instagram.com/yamabatamotors" target="_blank" rel="noopener">Instagramを見る<svg><use href="#i-diag"/></svg></a></div>
   </div></section>
+  <LineCta place="cases" />
 </Site>
