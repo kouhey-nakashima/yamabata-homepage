@@ -453,3 +453,12 @@ nav a[aria-current="page"]{color:var(--navy);font-weight:700}
 }
 
 @media (max-width:768px){ .cards{gap:16px} .card .ph::after{display:none} .card p{font-size:13.5px} }
+
+/* 中古車：写真はイメージの注記 */
+.img-note{margin:0}
+.img-note figcaption{font-size:12px;color:var(--muted);margin-top:8px;line-height:1.7}
+.stock-note{display:flex;gap:18px;align-items:flex-start;background:#fff;border:1.5px solid var(--sky);border-left:6px solid var(--navy);border-radius:14px;padding:18px 22px;max-width:900px;margin:0 auto}
+.stock-note b{flex:none;font-size:14px;color:var(--navy);padding-top:2px}
+.stock-note p{font-size:14px;color:#333;line-height:1.85}
+.stock-note a{color:var(--blue);font-weight:700;text-decoration:underline}
+@media (max-width:768px){ .stock-note{flex-direction:column;gap:6px;padding:16px 18px} }
