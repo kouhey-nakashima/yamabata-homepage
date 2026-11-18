@@ -1,7 +1,7 @@
 import type { APIRoute } from "astro";
 
 /** 固定ページのサイトマップ（ブログ記事は EmDash の /sitemap-posts.xml） */
-const PAGES = ["/", "/shaken", "/repair", "/cases", "/sales", "/insurance", "/company", "/blog"];
+const PAGES = ["/", "/shaken", "/repair", "/sales", "/company", "/blog"];
 
 export const GET: APIRoute = ({ site, url }) => {
 	const origin = site ?? new URL(url.origin);

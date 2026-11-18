@@ -33,6 +33,8 @@
 
 - [x] 確認用URL（2026-11-13公開・確認済み）：https://yamabata-homepage.pages.dev/ （Cloudflare Pages、GitHub連携、ブランチ`claude/affectionate-rubin-nlxo58`、出力`prototype`、ビルドなし）。プッシュで自動更新。全画像・ロゴ200、`X-Robots-Tag: noindex`と`robots.txt`が有効、iPhone表示で電話・LINEボタンのリンク確認。URLを知る人は誰でも閲覧可（アクセス制限なし）。本番（EmDash）とは別の一時環境
 
+- [x] 2026-11-18 ページ構成の見直し（D-010）：修理事例を修理・整備ページへ統合、保険代理ページ削除、車検の料金セクション削除、見積り対象外（営業車・貨物車・3t超・輸入車）は要問い合わせと明記。`site/`・`prototype/` 両方。`pnpm typecheck` 0エラー、ローカルで全ページ200（/cases・/insurance は404）
+
 ## CRMとのつなぎ込み
 - [x] LINE友だち追加のボタン（https://lin.ee/91lyUYb、試作に反映）。QRコードは未作成。CRMの実店舗用LINE切替時は同じアカウントか確認
 - [ ] 車検見積フォーム（CRM側、LIFF。未実装）への案内

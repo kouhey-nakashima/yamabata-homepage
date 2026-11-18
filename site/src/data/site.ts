@@ -21,9 +21,7 @@ export const NAV: NavItem[] = [
 	{ href: "/", label: "ホーム" },
 	{ href: "/shaken", label: "車検" },
 	{ href: "/repair", label: "修理・整備" },
-	{ href: "/cases", label: "修理事例" },
 	{ href: "/sales", label: "中古車販売" },
-	{ href: "/insurance", label: "保険代理" },
 	{ href: "/blog", label: "ブログ" },
 	{ href: "/company", label: "会社概要" },
 ];
@@ -43,6 +41,7 @@ export const LINE_CTA = ESTIMATE_LIVE
 			button: "LINEで30秒見積り",
 			short: "LINEで30秒見積り",
 			note: "※表示されるのは概算です。正式な金額はお車を点検してからご案内します。",
+			exclusions: "※営業車・貨物車・3t超の車・輸入車は、概算見積りの対象外です。お手数ですが、LINEまたはお電話でお問い合わせください。",
 		}
 	: {
 			catch: "LINEで、車検・修理のご相談",
@@ -51,6 +50,7 @@ export const LINE_CTA = ESTIMATE_LIVE
 			button: "LINEで相談する",
 			short: "LINEで相談",
 			note: "",
+			exclusions: "",
 		};
 
 /**

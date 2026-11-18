@@ -462,3 +462,7 @@ nav a[aria-current="page"]{color:var(--navy);font-weight:700}
 .stock-note p{font-size:14px;color:#333;line-height:1.85}
 .stock-note a{color:var(--blue);font-weight:700;text-decoration:underline}
 @media (max-width:768px){ .stock-note{flex-direction:column;gap:6px;padding:16px 18px} }
+
+.lcta__excl{margin-top:6px;opacity:.85}
+.card--static{cursor:default}
+.card--static:hover{transform:none;box-shadow:0 2px 0 rgba(15,74,134,.04)}

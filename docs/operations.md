@@ -9,10 +9,11 @@
 
 ## 実装済み（`site/`、2026-11-13、ローカル確認済み・未公開）
 ### LINE誘導
-- 「LINEで30秒、車検の概算見積り」の誘導枠（`src/components/LineCta.astro`。2026-11-13にデザイン刷新：紺の背景に大きな「30秒」、LINE画面のイメージ、立体の緑ボタン）：トップ（ヒーロー直下）、車検（料金の直後）、修理・整備、修理事例、中古車販売。PCではQRコード（`public/img/line-qr.png`、`https://lin.ee/91lyUYb`）も表示
+- 「LINEで30秒、車検の概算見積り」の誘導枠（`src/components/LineCta.astro`。2026-11-13にデザイン刷新：紺の背景に大きな「30秒」、LINE画面のイメージ、立体の緑ボタン）：トップ（ヒーロー直下）、車検（流れの直後）、修理・整備、中古車販売。PCではQRコード（`public/img/line-qr.png`、`https://lin.ee/91lyUYb`）も表示
 - ヘッダーに緑の「LINEで30秒見積り」ボタン（全ページ、スマホは「LINE見積り」。2026-11-13、お問い合わせボタンから置き換え）
 - トップのヒーローに緑の「LINEで30秒見積り」ボタン、スマホ下部の固定ボタン、お問い合わせ欄のボタンも同じ文言
 - 文言は `src/data/site.ts` の `LINE_CTA` にまとめている。**30秒見積り（CRM側のLINE内見積フォーム、LIFF）が動く前に本番公開する場合は `ESTIMATE_LIVE = false`** にすると「LINEで相談」に切り替わる（できないことをうたわない）
+- 対象外（営業車・貨物車・3t超・輸入車）は要問い合わせの注記（D-010）
 - 概算である旨の注記（「正式な金額は点検後」）を必ず表示（CRMのD-029と同じ）
 
 ### SEO
@@ -23,12 +24,12 @@
 - ブログ（カテゴリー別一覧・RSS）で地域の車の情報を発信できる
 
 ### 計測
-- Google アナリティクス 4 の測定IDを `src/data/site.ts` の `GA4_ID` に入れると有効になる。LINEボタンのクリックを `line_click`（押された場所：header／hero／top／shaken／repair／cases／sales／contact／sp-bar）として記録する
+- Google アナリティクス 4 の測定IDを `src/data/site.ts` の `GA4_ID` に入れると有効になる。LINEボタンのクリックを `line_click`（押された場所：header／hero／top／shaken／repair／sales／contact／sp-bar）として記録する
 
 ## これからやること
 ### 公開まで
 - [ ] CRM：LINE内の概算見積フォーム（LIFF）を作り、リッチメニューに「概算見積り」ボタンを置く（CRMリポジトリのTODO）。サイトの「メニューの『概算見積り』をタップ」はこれが前提
-- [ ] 車検料金（現行サイトの額）の確認。サイトとLINEの概算見積で金額がずれないようにする
+- [ ] 車検料金の確定（サイトには料金を載せない方針に変更、D-010。LINEの概算見積で使う金額をCRMの料金表に入れる）
 - [ ] Google アナリティクス 4 を作成して測定IDを設定
 - [ ] Google Search Console に `yamabata-motors.com` を登録し、`/sitemap.xml` と `/sitemap-pages.xml` を送信
 - [ ] Google ビジネスプロフィール（地図に出る店舗情報。現在 ★4.4・10件）のURL欄を新サイトに、営業時間をサイトと合わせる

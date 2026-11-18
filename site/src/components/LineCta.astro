@@ -51,6 +51,7 @@ const { place } = Astro.props;
 					</div>
 				</div>
 				{LINE_CTA.note && <p class="lcta__note">{LINE_CTA.note}</p>}
+				{LINE_CTA.exclusions && <p class="lcta__note lcta__excl">{LINE_CTA.exclusions}</p>}
 			</div>
 
 			{ESTIMATE_LIVE && (
