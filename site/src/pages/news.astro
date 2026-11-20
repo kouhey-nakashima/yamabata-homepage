@@ -1,0 +1,29 @@
+---
+import { getEmDashCollection } from "emdash";
+import Site from "../layouts/Site.astro";
+import NewsList from "../components/NewsList.astro";
+
+const cursor = Astro.url.searchParams.get("cursor") || undefined;
+const { entries: posts, cacheHint, nextCursor } = await getEmDashCollection("posts", {
+	where: { category: "news" },
+	orderBy: { published_at: "desc" },
+	limit: 20,
+	cursor,
+});
+if (Astro.cache?.enabled) Astro.cache.set(cacheHint);
+---
+
+<Site title="お知らせ" description="株式会社山畑自動車からのお知らせ。休業日・営業時間の変更などをお伝えします。">
+	<section class="page-hero">
+		<img src="/img/page-blog.jpg" alt="" width="1800" height="1200" fetchpriority="high" />
+		<div class="wrap"><p class="eyebrow">News</p><h1>お知らせ</h1></div>
+	</section>
+	<div class="wrap"><p class="crumb"><a href="/">HOME</a> ／ お知らせ</p></div>
+	<section class="sec"><div class="wrap">
+		<NewsList posts={posts} empty={cursor ? "これ以上のお知らせはありません。" : "現在お知らせはありません。"} />
+		{nextCursor && (
+			<p class="more"><a class="btn btn-outline" href={`/news?cursor=${encodeURIComponent(nextCursor)}`}>過去のお知らせ<svg><use href="#i-arrow"></use></svg></a></p>
+		)}
+		<p class="more"><a class="btn btn-outline" href="/blog">ブログを見る<svg><use href="#i-arrow"></use></svg></a></p>
+	</div></section>
+</Site>

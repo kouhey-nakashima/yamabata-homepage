@@ -22,6 +22,7 @@ export const NAV: NavItem[] = [
 	{ href: "/shaken", label: "車検" },
 	{ href: "/repair", label: "修理・整備" },
 	{ href: "/sales", label: "中古車販売" },
+	{ href: "/news", label: "お知らせ" },
 	{ href: "/blog", label: "ブログ" },
 	{ href: "/company", label: "会社概要" },
 ];

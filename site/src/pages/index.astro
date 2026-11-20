@@ -2,6 +2,7 @@
 import Site from "../layouts/Site.astro";
 import Contact from "../components/Contact.astro";
 import LatestPosts from "../components/LatestPosts.astro";
+import TopNews from "../components/TopNews.astro";
 import LineCta from "../components/LineCta.astro";
 import { LINE_CTA, SHOP } from "../data/site";
 ---
@@ -36,6 +37,8 @@ import { LINE_CTA, SHOP } from "../data/site";
       </dl>
     </div>
   </div>
+
+  <TopNews />
 
   <LineCta place="top" />
 

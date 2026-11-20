@@ -1,0 +1,28 @@
+---
+/** お知らせの一覧（日付＋タイトル） */
+import type { Post } from "../../emdash-env";
+import { formatDate } from "../utils/format";
+
+interface Props {
+	posts: { id: string; data: Post }[];
+	empty?: string;
+}
+const { posts, empty = "現在お知らせはありません。" } = Astro.props;
+---
+
+{posts.length === 0 ? (
+	<p class="empty">{empty}</p>
+) : (
+	<ul class="news-list">
+		{posts.map((p) => (
+			<li>
+				<a href={`/blog/${p.id}`}>
+					<time datetime={p.data.publishedAt?.toISOString()}>{formatDate(p.data.publishedAt)}</time>
+					<span class="news-list__tag">お知らせ</span>
+					<span class="news-list__title">{p.data.title}</span>
+					<svg class="news-list__arrow" aria-hidden="true"><use href="#i-arrow"></use></svg>
+				</a>
+			</li>
+		))}
+	</ul>
+)}

@@ -1,0 +1,23 @@
+---
+/** トップページ用：お知らせの新着3件 */
+import { getEmDashCollection } from "emdash";
+import NewsList from "./NewsList.astro";
+
+const { entries: posts, cacheHint } = await getEmDashCollection("posts", {
+	where: { category: "news" },
+	orderBy: { published_at: "desc" },
+	limit: 3,
+});
+if (Astro.cache?.enabled) Astro.cache.set(cacheHint);
+---
+
+<section class="top-news" id="news">
+	<div class="wrap top-news__in">
+		<div class="top-news__head">
+			<p class="eyebrow">News</p>
+			<h2>お知らせ</h2>
+			<a class="top-news__all" href="/news">一覧を見る<svg aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+		</div>
+		<NewsList posts={posts} />
+	</div>
+</section>
